@@ -25,8 +25,8 @@ build_script:
 after_build:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER --package poppler
-  - cmd: dir
-  - cmd: dir /r
+  - cmd: cmd /C dir C:\projects\
+  - cmd: cmd /C dir C:\projects\poppler-mirror
 
 artifacts:
   - path: build
@@ -35,5 +35,5 @@ artifacts:
 
 environment:
   matrix:
-    - TARGET: windows-mingw_64-gcc
+    #    - TARGET: windows-mingw_64-gcc
     - TARGET: windows-msvc2017_64-cl
