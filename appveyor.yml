@@ -28,7 +28,7 @@ after_build:
   - cmd: cmd /C dir /R C:\projects\
 
 artifacts:
-  - path: "**\*.exe"
+  - path: '**\*.exe'
     name: build.zip
     type: zip
 
