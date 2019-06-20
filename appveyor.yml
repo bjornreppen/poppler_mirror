@@ -31,9 +31,6 @@ artifacts:
   - path: .
     name: build.zip
     type: zip
-  - path: ..\test
-    name: test.zip
-    type: zip
 
 environment:
   matrix:
