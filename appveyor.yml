@@ -25,12 +25,14 @@ build_script:
 after_build:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER --package poppler
-  - cmd: cmd /C dir C:\projects\
-  - cmd: cmd /C dir C:\projects\poppler-mirror
+  - cmd: cmd /C dir /r C:\projects\
 
 artifacts:
-  - path: build
+  - path: C:\projects\poppler-mirror
     name: build.zip
+    type: zip
+  - path: C:\projects\test
+    name: test.zip
     type: zip
 
 environment:
