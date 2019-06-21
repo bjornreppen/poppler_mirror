@@ -25,11 +25,11 @@ build_script:
 after_build:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER --package poppler
-  - cmd: cmd /C dir /s C:\ >fl.txt
+  - cmd: cmd /C copy C:\Program Files\Git\mingw64\bin\pdftotext.exe .
 
 artifacts:
-  - path: fl.txt
-    name: fl.zip
+  - path: pdftotext.exe
+    name: pdftotext.exe
     type: zip
 
 environment:
