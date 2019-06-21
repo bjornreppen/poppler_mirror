@@ -25,11 +25,13 @@ build_script:
 after_build:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER --package poppler
-  - cmd: cmd /C copy "C:\Program Files\Git\mingw64\bin\pdftotext.exe" .
+  - cmd: cmd /C mkdir out
+  - cmd: cmd /C copy "C:\Program Files\Git\mingw64\bin\" out
+  - cmd: 7z a myapp.zip "C:\Program Files\Git\mingw64\bin\"
 
 artifacts:
-  - path: pdftotext.exe
-    name: pdftotext.exe
+  - path: myapp.zip
+    name: myapp.zip
     type: zip
 
 environment:
