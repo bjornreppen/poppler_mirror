@@ -21,12 +21,12 @@ install:
 build_script:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER poppler
-  - cmd: 7z a myapp.zip "C:\CraftMaster\windows-msvc2017_64-cl\tmp\"
   - cmd: cmd /C dir /s C:\CraftMaster\ >log.txt
 
 after_build:
   - ps: |
       craft --no-cache --src-dir $env:APPVEYOR_BUILD_FOLDER --package poppler
+  - cmd: 7z a myapp.zip "C:\CraftMaster\windows-msvc2017_64-cl\tmp\"
 #  - cmd: cmd /C mkdir out
 #  - cmd: cmd /C copy "C:\Program Files\Git\mingw64\bin\" out
 #  - cmd: 7z a myapp.zip "C:\Program Files\Git\mingw64\bin\"
